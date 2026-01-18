@@ -1,0 +1,923 @@
+###### 版本更新 ######
+
+增加新人类技能，新地图，将小丑调整级别，仅在觉醒憎恶时和护枯凛金一同进入随机池
+
+更新代码
+
+###### 随机技能网址 ######
+https://dpsm.3stadt.com/survivor?sids=0,1,3,72,83,4,65,116,5,107,89,90,117,6,8,9,10,71,62,81,11,66,132,128,95,97,146,120,99,91,118,12,13,101,14,133,84,15,17,80,18,19,20,125,102,98,143,144,86,141,69,92,63,114,76,142,22,23,131,104,70,24,26,27,129,28,29,109,73,122,64,138,145,32,74,33,100,106,103,34,127,35,36,113,121,85,37,39,110,111,75,79,105,93,94,41,123,126,67,87,42,96,148,43,44,88,45,46,77,140,47,48,139,50,135,51,52,53,147,124,54,55,56,57,82,58,59,60,136,61,112
+
+职业生成代码见最后
+
+###### 游戏流程 ######
+
+1. 先分配职业，选定内鬼
+
+2. roll技能
+roll 逃生者技能 （建议盗贼截图自己技能后先考虑职业技能再在游戏里配自己的技能）
+roll 屠夫技能 （裁判将技能发给盗贼，屠夫，和内鬼，最先发给盗贼）
+
+裁判先给每位逃生者，屠夫，盗贼，内鬼发送逃生者和屠夫的技能。
+
+3. 职业宣称环节
+
+3.1 宣布天使的存在，告知全场是谁。
+上帝派遣他忠诚的使者，将光明与希望带给世人，宣扬慈爱与正义的福音，指引迷途者回归正道。
+
+3.2 宣布撒旦的存在（这可别告诉全场是谁）
+撒旦携黑暗与诡计而来，以诱惑的言语蛊惑人心，在贪欲与堕落中播撒混乱与绝望。
+
+3.3 宣布内鬼种类：
+上帝注视到巫医的仪式，黑暗的力量在吟唱中苏醒，腐朽与疾病悄然侵袭。-觉醒：上帝垂怜那巫医的祭坛，神迹化作鲜血与腐肉的盛宴。邪力在吟唱中咆哮苏醒，瘟疫浩荡而至，万民在腐朽中欢呼。
+上帝聆听到咒者的低语，诅咒在耳语中缠绕，恐惧在无形中滋生。-觉醒：上帝倾耳聆听咒者的呢喃，不洁之音如圣典低吟，诅咒于天地之间回响，恐惧在梦中裂口而生
+上帝洞察到梦魇的侵袭，沉睡之人困于噩梦，现实与幻想交织成无尽深渊。-觉醒：上帝已闭目沉眠，梦魇于深渊中苏醒。沉睡之人睁开双眼，却再无法区分现实与诡梦，只能在扭曲真相中献上灵魂。
+上帝未能触及魑魅的踪迹，它们游荡于幽冥之间，冷笑回荡在寂静夜幕。-觉醒：上帝的目光无法触及魑魅，它们从幽冥深处成群而出，在世界的裂隙中苏醒。冷笑穿透现实，如号角般宣告万象终焉。
+上帝窥见到幽刃的暗影，匕首划破沉寂，鲜血在黑暗中静默流淌 -觉醒：上帝赐福幽刃以神性沉默后的第一滴血。非诞于光，铸于未言的怒，为黑暗封喉。
+上帝俯视冥将的降临，挥手间阴影遮蔽苍穹，尘世将在无尽的黑暗中颤栗。-觉醒：上帝默许冥将登临尘世，祂自虚空而生，披裹死寂与影火，众生自知罪愆，尘世在毁灭中颤栗
+上帝感知到憎恶的滋长，仇恨之火在心中燃烧，善意在恶念侵蚀下化为灰烬。-觉醒：上帝感知憎恶于心底孳生，仇恨之火灼烧理智，烧穿恩典与怜悯，善意早已腐朽，灰烬在黑念中飘散无声。
+上帝凝视到假面的伪装，虚假的笑容掩盖真实，灵魂在欺骗中逐渐迷失。-觉醒：上帝凝视假面的裂痕，虚伪的笑容成为真相的外壳，灵魂在欺骗中甘愿沉沦，迷失自我，献身伪神。
+上帝翻阅赎吏的账簿，债名在血墨中显现，灵魂与命运随代币一同贬值。-觉醒：上帝亲启赎吏的血契账册，众生之名在猩红墨迹中扭曲浮现。每一笔债都以灵魂定价，每一枚币皆以命运偿还。
+
+3.4 **幽刃发动技能** （幽刃是唯一先最先发动技能的内鬼角色）
+
+4. 发动职业技能
+
+4.1 无面复制职业（不可复制天使）赌徒进行猜测。
+
+4.2 裁判询问 圣女是否发动技能，发送 “发动” 或者 “不发动”。 
+上帝聆听到圣女的祈祷，她以慈悲抚慰众生，以圣洁驱散绝望 /上帝遗憾圣女的沉默，她以沉思回应疑问，以坚韧承受苦难
+
+如果有圣女技能生效，裁判提醒圣女指定两名逃生者分别获得”远见祝福“和”坚韧祝福“
+
+4.3 裁判询问 贤者是否发动技能，发送 “发动” 或者 “不发动”
+上帝聆听到贤者的祷告，希望的光芒在智慧中闪烁。/ 上帝未听贤者的叹息，世人沉溺于欲望，拒绝真理的启示。
+
+4.4.裁判询问 武士是否发动技能，你有10秒私信发送 “发动” 或者 “不发动”
+上帝钦佩武士的忠诚与勇气，他们在信念中坚守正义，不畏黑暗的侵袭 /上帝悲叹武士的执念，他们在无尽的战斗中寻求荣誉，却常迷失于血与火的纷争
+
+4.5 宣布是否有骑士在场：
+上帝赐福骑士的忠诚与仁义，他们挥剑守护正义，以信仰之光照亮黑暗的世道。
+
+裁判同时告知盗贼有最后10秒时间发动盗窃
+
+4.6 商贩交易
+
+4.7 裁判告知内鬼盗贼的选择，无论是否有盗贼
+x号技能被替换为 ——
+
+5.内鬼发动技能
+
+裁判询问屠夫玩家是否公布自己的角色。
+
+裁判告知屠夫： 内鬼和盗贼的选择 
+
+
+###### 游戏重要规则 ######
+
+0. 禁止4趴打法。如果一个人上钩，那么直到一个其他的人上钩前，屠夫不可再挂这个人。
+
+0.5 内鬼自爆后不能卡门把手
+
+1. 出局的人不能观战 -1
+
+2. 陈述阶段不能对话，否则-1
+
+3.不能人身攻击 -10 -20 -100
+
+4.可以交流游戏理解但不能压力 否则-5
+
+5.大量粗口 -2 （tm，我真是c了，等）
+
+6.以赢分为目的，别摆，别针对 -1 无理由自爆-2 
+
+7.不能聊场外 （回微信，打电话等）
+
+8.尽量不要吵架（=_=)\
+
+9.不能贴脸发言
+
+###### 发言和投票规则 ######
+
+1.以发言时分钟数为奇数或者偶数决定发言顺序。奇数(如：3点13分）则顺序发言，偶数（如：2点00分）则逆序发言。
+
+2.每轮每人1分钟发言时间，结束后每位逃生者投票给裁判。每人1票
+
+3.如果有两人获得平票，则这两人进行第二轮pk发言。第一轮后发言的在第二轮先发言。60秒发言时间。
+
+4.pk发言后，屠夫玩家 和 不在pk台的两名逃生者投票给裁判。屠夫0.5票，逃生者1票。
+
+5.票数最高的出局。
+
+6.局内投票流程。在内鬼没有自爆的情况下，所有逃生者包括内鬼有一次机会申请发动提前投票，3人同意情况下可以投票一人为内鬼（不需要发给裁判，口头即可）。此时游戏依旧继续进行。申请发动投票后，直到投票完成，内鬼不可以自爆。投出内鬼+2 内鬼-2. 投错则内鬼+2，逃生者-2
+
+###### 计分规则 ######
+
+每局游戏的最后得分都会累计至玩家总得分，最后奖励赛季结束以个人总得分计算。负分玩家（我除外，嘻嘻）表演一首不拿手的歌曲。
+
+逃生者
+
+修开 +1
+2跑 +1.5
+找到内鬼 +1.5
+被杀光（小于2跑） -1.5
+找内鬼失败 -1.5
+在投票环节，存在pk台且两次都投对 +0.5
+
+屠夫
+
+场上存在未修开电机 +1
+杀完（小于2跑） +2
+2跑 -2
+
+找内鬼失败+0.5
+内鬼被找出 +0
+
+内鬼首位出局 -2
+内鬼存活 +0.5
+
+内鬼自爆 -2
+
+内鬼
+
+第一轮投票被投1票+1.5 被投0票+2
+pk台获胜 +1
+被公投出局 -1.5
+
+逃生者一跑及以下 +1.5
+2跑及以上 -1
+
+自爆-0.5
+
+内鬼首位出局 -6
+如果有三名逃生者选择提前投票并且确认投出的是同一个人（自爆），且投出内鬼+2 内鬼-2. 投错则内鬼+2，逃生者-2
+
+参考策略：
+在开局的时候选择隐藏
+如果屠夫大优势 选择隐藏
+如果人类大优势（局势不可逆转）选择隐藏
+如果均势  *优先*选择隐藏
+
+
+参考策略：
+
+如果终局开门剩1名逃生者和1名内鬼。如果内鬼选择出门获得胜利，2跑逃生者胜利-1，根据投票情况最多+1分，最差-2.5分。大概率+0.5/-0.5 或者 如果选择自爆，一定公投出局-1.5 自爆-0.5 屠夫胜利+1.5 最后一定-0.5。所以要判断自己在投票阶段是否会出局来选择是否自爆。
+
+如果3人一台机或类似的微妙情况
+**此时要考虑到一人已经首位出局，不太可能是内鬼。所以内鬼极大概率在剩下的三个人里。**
+
+1. 如果选择隐藏身份帮好人玩：
+
+1.1 逃生者获胜。大概率+/-0.5
+如果好人身份做的非常好：+1.5
+如果不幸出局 -2.5
+1.2 屠夫获胜。最少-0分。最多+4分。不过大概率是2.5分或者3分
+
+2.自爆
+一定-0.5
+
+在被严重怀疑的情况下，自爆显然是可以考虑的选择。否则最优解是尽可能隐藏身份前提下让屠夫获胜。
+
+
+
+###### 职业介绍 ######
+
+1. 逃生者职业：
+
+上帝(1%概率进入职业池）
+不可被复制。携带任意技能，道具，祭品。免疫任何负面效果。选定一名逃生者为神侍。赐予其两个技能与上帝相同。
+
+神侍：
+不可被复制。
+
+圣女：
+可以牺牲自己全部技能并分别赐予两位逃生者”远见祝福“和”坚韧祝福“。获得远见祝福的人可以携带任何非违规气场型技能，获得坚韧祝福的人可以携带任何获得坚韧状态的技能。圣女在场时，牧师的医疗包可携带配件。
+-神启：慈悲祝福：获得慈悲祝福的人可以携带治疗技能
+
+天使：（15%概率进入职业池）
+不可被复制。自选自己全部技能。
+-神启：可以查看屠夫最终技能
+
+无面：
+指定复制一个队友的职业，后发动技能。
+-神启：可以查看，并选择复制该队友的初始技能
+
+祭祀：
+可以将已有的恩赐图腾技能和一个非恩赐图腾技能替换成任意恩赐图腾技能
+-神启：技能不限于恩赐图腾。可以将所有的图腾类技能和一个非图腾类技能替换成任意图腾技能
+
+铁匠：
+可以携带两个柜子类技能
+-神启：可以携带三个柜子类技能
+
+贤者：
+可以刷新随机技能组两次，刷新时每位逃生者可在当前的随机技能组中挑选一个替换已有技能，总共仅一次机会。
+-神启：可以刷新随机技能组三次
+
+游侠：
+可以携带光明勇士或余光长存，开局携带致盲道具
+-神启：光明勇士和余光长存可以同时携带
+
+盗贼：
+可以替换屠夫的一个现有技能。（如果武士发动技能，则有一个技能为空，不可被替换）
+-神启：盗贼技能发动顺序置后。在内鬼后发动。
+
+勇士：
+可以自选除了弹射以外的任何疲劳技能
+-神启：可以自选任何疲劳技能
+
+先知：
+可以携带似曾相识 和 不祥预感
+-神启：可以额外携带一个气场类技能
+
+牧师：
+必须携带精研百草，开局携带无配件白色稀有度医疗包
+-神启：医疗包可以带配件
+
+武士：
+可以牺牲自己所有技能，随机移除屠夫的一个技能
+-神启：指定移除屠夫的一个技能
+
+
+骑士：
+必须携带魂牵梦绕，在对局中有一次机会，在追逐状态招手并高喊 “决斗！“ 视为决斗开始。决斗开始后，屠夫下一次击倒必须为骑士，否则骑士决斗成功（送不算）。同一时间场上只能存在一次决斗，后发动的生效。屠夫-1.5 骑士 +1.5
+-神启：无需携带魂牵梦绕，决斗奖励和惩罚分数由1.5变为3分。
+
+武僧：
+可以携带百折不挠
+-神启：可以携带百折不挠或任意受伤发动的技能
+
+
+愚者：
++0.5分，无其他特殊效果。
+-神启：+1.5分，无其他特殊效果。
+
+赌徒
+上帝进行一次盲掷骰，点数1-6。赌徒猜测一个长度最小为1最大为5的集合。（如：{1,3,4},{2),{1,2,3,4,5}）如果命中, 根据集合的长度获得不同程度的奖励。如果失败无事发生。
+1：自选3个技能
+2：自选2个技能
+3：自选1个技能
+4：额外获得2组随机技能
+5：额外获得1组随机技能
+-神启：上帝进行二次盲掷骰
+
+商贩:
+上帝宣布商贩的存在，并告知是谁。商贩获得一组额外逃生者技能以及一组屠夫技能。逃生者和屠夫可以通过给予分数的方式，和商贩交易自己想要的技能。
+-神启：分别获得额外两个逃生者和屠夫技能
+
+
+2. 内鬼职业:（注意除幽刃外内鬼职业技能都是最后发动）
+
+撒旦（有25%几率进入职业随机池）：
+可以选择屠夫全部技能。（有武士发动技能情况下，只能选3个）
+
+巫医：
+可以替换屠夫任意技能为任意图腾技能
+-觉醒：如果屠夫有图腾技能，可以将其替换为任意其他图腾技能
+
+咒者：
+可以指定三名玩家给予三种不同诅咒，每种诅咒限一次：
+虚脱诅咒：这名玩家不可携带疲劳技能。
+迟缓诅咒：开局时，直到受伤 或者 第一台修理发电机完成 或者 完整拆除或祝福一个图腾 只能步行
+静默诅咒：开局时，直到第一台发电机修理完成，可以指定这名玩家只能发出 “<某种指定的（如：啊，唔，呱）>” 声音，不能说话。
+-觉醒：
+禁锢诅咒：开局时，直到有逃生者受伤不可修理发电机
+
+梦魇：
+可以替换屠夫任意技能为任何击杀技能
+-觉醒：如果屠夫有击杀技能，可以将其替换为任意其他击杀技能
+
+魑魅：
+屠夫额外获得两组随机技能。屠夫玩家可以在包括原有的随机技能组，共三组中挑选一组作为最终技能组。
+- 觉醒：额外获得两组随机技能
+
+幽刃：
+可以使得一名随机逃生者开局携带不痛不痒 （可被武士技能移除）
+- 觉醒：使得另外一个逃生者获得魂牵梦绕
+
+冥将：
+可以替换屠夫任意技能为踢机类技能
+-觉醒：如果屠夫有踢机技能，可以将其替换为任意其他踢机技能
+
+憎恶：
+杀手获得额外一组不重复的杀手选择
+-觉醒：杀手获得额外一组不重复的，且可能包含限制杀手的杀手选择
+
+假面:
+最先发动技能（同幽刃），获得一组额外逃生者技能。可以查看全部其他逃生者的技能，并选择其他逃生者的1个技能，与假面手中初始技能以及额外技能的一个进行交换。
+假面的逃生者技能组是在技能交换结束后的8个技能中，*任意*选择4个技能。
+-觉醒：获得额外一组屠夫技能，可以选择一个与屠夫的技能进行交换
+
+新内鬼：赎吏
+可以替换屠夫任意技能为任何代币类技能
+-觉醒：如果屠夫有代币类技能，可以将其替换为任意其他代币技能
+
+3. 杀手职业：
+
+下水道：
+可以自选一个控机技能，可凭良心选一张优势图（ban哈登）
+
+半牢：
+可以自选一个控机技能
+
+强走地/幻神：
+你的右键，嘻嘻(●'◡'●)
+
+###### 牢度 list ######
+
+
+牢：
+
+- 夹子，小白脸，李奶奶，老杨，黄肚兜，猪，团子，鬼面，魔王，枪手，三角头，追追，鸟，贞子，影魔，饿骑士，白骨，
+
+半牢：
+
+- 不熟练的兔子，佛爷，瘟疫，何知云，钉子头，威斯克，异形，小孩，未知，lich，电子玩偶
+
+不牢：
+
+- 叮当，瘸子，护士，熟练的兔子，凛，oni，枯萎，连体婴，奇点，吸血鬼，潘虹，金木研，小丑，
+
+
+###### 代码 ######
+
+百度搜运行python的网站即可：
+
+import random
+
+def assign_roles():
+    players = [f"{i}号玩家" for i in range(1, 5)]
+    escape_roles = [
+        "贤者", 
+        "游侠", 
+        "盗贼", 
+        "勇士", 
+        "先知", 
+        "牧师", 
+        "武士", 
+        "骑士", 
+        "祭祀", 
+        "铁匠", 
+        "无面",
+        "武僧",
+        "圣女",
+        "赌徒",
+        "商贩"
+        ]
+    traitor_roles = [
+        "巫医", 
+        "咒者",
+        "梦魇", 
+        "魑魅",
+        "冥将",
+        "幽刃",
+        "憎恶", 
+        "假面",
+        "赎吏"
+        ]
+
+    killer_awaken = 0
+
+
+    killer_roles = [
+        "Evan MacMillan -The Trapper 设陷者",
+        "Philip Ojomo -The Wraith 幽灵",
+        "Max Thompson Jr. -The Hillbilly 农场主",
+        # "Sally Smithson - The Nurse 护士",
+        "Michael Myers - The Shape 迈克尔·迈尔斯",
+        "Lisa Sherwood -The Hag 妖巫",
+        "Herman Carter -The Doctor 医生",
+        "Anna -The Huntress 女猎手",
+        "Bubba Sawyer -The Cannibal 食人魔",
+        "Freddy Krueger -The Nightmare 梦魇",
+        "Amanda Young -The Pig 门徒",
+        "Jefferey Hawk -The Clown 小丑",
+        # "Rin Yamaoka -The Spirit 怨灵",
+        "Frank, Juilie, Susie, Joey -The legion 军团",
+        "Adiris -The Plague 瘟疫",
+        "Danny Johnson -The Ghost Face 鬼面",
+        "Demogorgon -The Demogorgon 魔王",
+        "Kazan Yamaoka -The Oni 鬼武士",
+        "Caleb Quinn -The Deathslinger 死亡枪手",
+        "Pyramid Head -The Executioner 处刑者",
+        # "Talbot Grimes -The Blight 枯萎者",
+        # "Charlotte & Victor Deashayes -The Twins 连体婴",
+        "Ji-Woon Hak -The Trickstar 骗术师",
+        "Nemesis T-Type -The Nemisis 追击者",
+        "Elliot Spencer -The Cenobite 钉子头",
+        "Carmina Mora -The Artist 艺术家",
+        "Sadako Tamamura -The Onry ō 贞子",
+        "Dredge -The Dredge 影魔",
+        "Albert Wesker -The Mastermind 操纵者",
+        "Tarhos Kav á cs -The Knight 恶骑士",
+        "Adriana Imai -The Skull Merchant 白骨商人",
+        # "HUX-A7-13 -The Singularity 奇点",
+        "Xenomorph -The Xenomorph 异形",
+        "Charles Lee Ray -The Good Guy 好孩子",
+        "Unknown -The Unknown 未知恶物",
+        "Vecna -The Lich 巫妖",
+        "Dracula -The Dark Lord 黑暗之主",
+        # "Portia Maye -The Houndmaster 训犬师",
+        # "Ken Kaneki -The Ghoul 食尸鬼"，
+        # "Willian Afton -The Animatronic"
+    ]
+
+    survivor_perks = [
+    "Ace in the Hole 锦囊妙计",
+    "Adrenaline 肾上腺素",
+    # "Aftercare 劫后余生",
+    "Alert 警戒",
+    "Any Means Necessary 不惜一切",
+    "Appraisal 明察秋毫",
+    "Autodidact 自学成才",
+    "Babysitter 保姆",
+    "Background Player 幕后玩家",
+    "Balanced Landing 平稳着陆",
+    # "Bardic Inspiration 吟游诗人激励",
+    "Better than New 焕然一新",
+    # "Better Together 齐心协力",
+    "Bite the Bullet 咬紧牙关",
+    "Blast Mine 爆炸地雷",
+    # "Blood Pact 鲜血契约",
+    "Blood Rush 滴血冲刺",
+    "Boil Over 脱缰野马",
+    # "Bond 携手合作",
+    "Borrowed Time 时不我待",
+    "Botany Knowledge 经研百草",
+    "Breakdown 分崩离析",
+    "Breakout 挣脱激励",
+    "Buckle Up 未雨绸缪",
+    "Built to Last 经久耐用",
+    "Calm Spirit 安抚生灵",
+    "Camaraderie 同志情谊",
+    "Champion of Light 光明勇士",
+    "Chemical Trap 化学陷阱",
+    "Circle of healing 恩赐：治疗之环",
+    "Clairvoyance 千里眼",
+    "Clean Break 各自为安",
+    "Collective Stealth 团队合作：全体隐蔽",
+    "Corrective Action 矫正措施",
+    "Counterforce 反制之力",
+    "Cut Loose 当机立断",
+    "Dance With Me 与我共舞",
+    "Dark Sense 暗黑觉知",
+    "Dark Theory 恩赐：黑暗理论",
+    "Dead Hard 钢筋铁骨",
+    # "Deadline 交稿日",
+    "Deception 兵不厌诈",
+    "Decisive Strike 毁灭打击",
+    # "Deja Vu 似曾相识",
+    "Deliverance 善有善报",
+    "Desperate Measures 绝境对策",
+    "Detective's Hunch 侦探直觉",
+    "Distortion 气场失真",
+    "Diversion 声东击西",
+    "Do No Harm 切勿伤害",
+    "Dramaturgy 即兴表演",
+    "Duty of Care 谨慎责任",
+    "Empathic Connection 感同身受",
+    # "Empathy 心灵共鸣",
+    "Exponential 恩赐：指数增长",
+    "Exultation 胜利喜悦",
+    "Eyes of Belmont 贝尔蒙特之眼",
+    # "Fast Track 成功捷径",
+    "Finesse 矫健身手",
+    "Fixated 认定目标",
+    "Flashbang 闪光弹",
+    "Flip-Flop 并行进展",
+    "Fogwise 迷雾慧眼",
+    "For the People 舍己为人",
+    # "Friendly Competition 团队合作：友谊赛",
+    "Hardened 求生欲",
+    "Head On 勇往直前",
+    "Hope 希冀之翼",
+    # "Hyperfocus 聚精会神",
+    "Illumination 恩赐：明亮",
+    "Inner Focus 内在专注",
+    "Inner Healing 内心之力",
+    "Iron Will 钢铁意志",
+    # "Kindred 同族",
+    "Leader 领导",
+    "Left Behind 末日残兵",
+    "Light-Footed 轻盈猫步",
+    "Lightweight 轻如鸿毛",
+    "Lithe 轻盈敏捷",
+    "Low Profile 低调行事",
+    "Lucky Break 幸运喘息",
+    # "Lucky Star 幸运星",
+    "Made for This 为生为生",
+    "Mettle of Man 人之勇气",
+    "Mirrored Illusion 镜影幻想",
+    "Moment of glory 荣耀时刻",
+    "No Mither 不痛不痒",
+    # "No one left behind 同生共死",
+    "Object of Obsession 魂牵梦绕",
+    "Off the Record 非正式调查",
+    "Open-Handed 稳操胜券",
+    "Overcome 克服难关",
+    # "Overzealous 急于求成",
+    "Parental Guidance 亡父警言",
+    "Pharmacy 药到病除",
+    "Plost Twist 跌宕剧情",
+    "Plunderer's Instinct 强盗直觉",
+    "Poised 蓄势待发",
+    "Potential Energy 潜力无限",
+    "Power of Two 团队合作：二人之力",
+    "Power Struggle 强力挣扎",
+    "Premonition 不祥预感",
+    # "Prove Thyself 证明自己",
+    "Quick & Quiet 急速静谧",
+    # "Quick Gambit 快速策略",
+    "Rapid Response 快速反应",
+    "Reactive Healing 对策治疗",
+    "Reassurance 定心丸",
+    "Red Herring 转移注意",
+    "Repressed Alliance 压抑同盟",
+    "Residual Manifest 余光长存",
+    # "Resilience 百折不挠",
+    "Resurgence 东山再起",
+    "Rookie Spirit 新人精神",
+    "Saboteur 破坏手",
+    "Scavenger 清道夫",
+    "Scene Partner 联袂主演",
+    "Second Wind 复苏之风",
+    "Self-Care 自我疗愈",
+    "Self-Preservation 自我保护",
+    "Shadow Step 恩赐：暗影步",
+    "Shoulder the Burden 肩负重担",
+    "Small Games 狩猎经验",
+    "Slippery Meat 逃之夭夭",
+    "Smash Hit 轰动演出",
+    "Sole Survivor 最后的生还者",
+    "Solidarity 团结意志",
+    "Soul Guard 灵魂守卫",
+    "Specialist 老本行",
+    "Spine Chill 毛骨悚然",
+    "Sprint Burst 冲刺爆发",
+    # "Stake Out 破案心切",
+    "Still Light 心静眼明",
+    "Streetwise 都市生存",
+    "Strength in shadows 隐匿之势",
+    "Technician 技术员",
+    "Tenacity 永不言弃",
+    "This Is Not Happening 难以置信",
+    "Treacherous Crows 祈祷：邪恶乌鸦",
+    "Troubleshooter 答疑解惑",
+    "Unbreakable 坚不可摧",
+    "Up the Ante 好运会传染",
+    "Urban Evasion 暴走族",
+    "Vigil 守夜人",
+    "Visionary 远见卓识",
+    "Wake Up! 醒醒",
+    "We're Gonna Live Forever 生死与共",
+    "Well Make It 马到功成",
+    "Weaving Spider 祈祷：织网蜘蛛",
+    "Wicked 邪祟之力",
+    "Windows of Opportunity 机遇之窗",
+    "Wiretap 窃听器"
+]
+    killer_perks = [
+    "A Nurse's Calling 护士的呼唤",
+    "Agitation 欣喜若狂",
+    "Alien Instinct 异形本能",
+    "All-Shaking Thunder 大发雷霆",
+    "Awakened Awareness 感知觉醒",
+    "Bamboozle 花言巧语",
+    "Barbecue & Chili 人肉烧烤",
+    "Batteries Included 配套电池",
+    "Beast of Prey 嗜血凶手",
+    "Bitter Murmur 苦涩低语",
+    "Blood Echo 鲜血回响",
+    "Blood Favor 厄咒：鲜血恩惠",
+    "Blood Warden 血腥狱长",
+    "Brutal Strength 血气追踪",
+    "Brutal Strength 所向无敌",
+    "Call of Brine 盐水召唤",
+    "Coulrophobia 小丑恐惧症",
+    "Corrupt Intervention 腐烂干预",
+    "Coup de Grâce 恩赐解脱",
+    "Crowd Control 厄咒：群体控制",
+    "Cruel Limits 幽闭恐惧症",
+    "Dark Arrogance 新暗气傲",
+    "Dark Devotion 黑暗奉献",
+    "Darkness Revealed 黑暗启迪",
+    "Dead Man's Switch 失效开关",
+    "Deadlock 死锁",
+    "Deathbound 死亡羁绊",
+    "Deerstalker 猎鹿者",
+    "Devour Hope 厄咒：吞噬希望",
+    "Discordance 配合失谐",
+    "Dissolution 烟消云散",
+    "Distressing 恐惧释放",
+    "Dominance 支配之力",
+    "Dragon's Grip 巨龙之握",
+    "Dying Light 湮灭之光",
+    "Enduring 耐力持久",
+    "Eruption 爆发",
+    "Face The Darkness 直面黑暗",
+    "Fire Up 怒火中烧",
+    "Flood of rage 天灾钩子：狂怒之潮",
+    "Forced Hesitation 踯躅不前",
+    "Forced Penance 强制忏悔",
+    "Forever Entwined 永恒交织",
+    "Franklin's Demise 富兰克林之死",
+    "Friends 'til the End 友谊天长地久",
+    "Futive Chase 鬼祟追杀",
+    "Game Afoot 好戏开场",
+    "Gearhead 设备发烧友",
+    "Genetic Limits 基因锁",
+    "Grim Embrace 冷酷之拥",
+    "Hangman's Trick 天灾钩子：刽子手的把戏",
+    "Haunted Ground 厄咒：闹鬼之地",
+    "Hoarder 囤积者",
+    "Hubris 骄傲自大",
+    "Human Greed 人性贪婪",
+    "Huntress Lullaby 厄咒：猎手摇篮曲",
+    "Hysteria 歇斯底里",
+    "I'm All Ears 洗耳恭听",
+    "Infectious Fright 恐惧传染",
+    "Insidious 静止隐身",
+    "Iron Grasp 牢牢紧握",
+    "Iron Maiden 铁处女",
+    "Jagged Compass 天灾钩子：锯齿罗盘",
+    "Knock Out 击倒出局",
+    "Languid Touch 倦怠之触",
+    "Lethal Pursuer 致命追踪者",
+    "Leverage 杠杆效应",
+    "Lightborn 光明之眼",
+    "Machine Learning 机器学习",
+    "Mad Grit 疯狂勇气",
+    "Make Your Choice 做出你的选择",
+    "Merciless Storm 无情风暴",
+    "Mindbreaker 瓦解意志",
+    "Monitor & Abuse 行监坐守",
+    "Monstrous Shrine 天灾钩子：鬼魔神龛",
+    "Nemesis 报应",
+    "No One Escapes Death 厄咒：难逃一死",
+    "No Quarter 毫不留情",
+    "No Way Out 无路可逃",
+    "None Are Free 无一幸免",
+    "Nothing But Misery 厄咒：众生皆苦",
+    "Nowhere to Hide 无处可藏",
+    "Oppression 切肤之痛",
+    "Overcharge 电量超载",
+    "Overwhelming Presence 压迫性气场",
+    "Pain Resonance 天灾钩子：痛苦共鸣",
+    "Pentimento 厄咒：余痕",
+    "Play with Your Food 戏弄食物",
+    "Plaything 厄咒：玩物",
+    "Pop Goes the Weasel 心惊肉跳",
+    "Predator 穷追不舍",
+    "Rancor 怨气冲天",
+    "Rapid Brutality 急速残暴",
+    "Remember Me 记忆犹新",
+    "Retribution 厄咒：惩戒",
+    "Ruin 厄咒：毁灭",
+    "Save the Best for Last 把最好的留在最后",
+    "Scourge Hook: Floods of Rage 天灾钩子：痛苦礼物",
+    "Septic Touch 感染之触",
+    "Shadowborn 暗夜之睛",
+    "Shattered Hope 粉碎希望",
+    "Sloppy Butcher 辣手屠夫",
+    "Spies from the Shadows 鬼鸦谍影",
+    "Spirit Fury 暴怒怨灵",
+    "Starstruck 追星狂",
+    "Stridor 鸣喘",
+    "Superior Anatomy 超人类体能",
+    "Surge 电涌",
+    "Surveillance 了如指掌",
+    "Tinkerer 工匠",
+    "Terminus 终局战术",
+    "Territorial Imperative 领地意识",
+    "Thanatophobia 死亡恐惧",
+    "The Thrid Seal 厄咒：第三封印",
+    "Thrilling Tremors 厄咒：猎杀戾气",
+    "Thrilling Tremors 惊险战栗",
+    "Thwack 哐哐作响",
+    "Trail of Torment 折磨路径",
+    "Two Can Play 厄咒：以牙还牙",
+    "Ultimate Weapon 终极武器",
+    "Unbound 无束",
+    "Undone 无效",
+    "Undying 厄咒：不死",
+    "Unforeseen 无迹",
+    "Unnerving Presence 恐慌降临",
+    "Unrelenting 不屈不挠",
+    "Weave Attunement 编织共鸣",
+    "Whispers 恶灵低语",
+    "Wretched Fate 厄咒：悲惨命运",
+    "Zanshin Tactics 残心"
+]
+    
+    map = [
+    ["Coal Tower 1 煤矿废塔1", "Coal Tower 2 煤矿废塔2"],
+    ["Groaning Storehouse 1 哀嚎仓库1", "Groaning Storehouse 2 哀嚎仓库2"],
+    ["Ironworks Factory 1 悲惨钢铁厂1", "Ironworks Factory 2 悲惨钢铁厂2"],
+    ["Shelter Woods 1 掩护林1", "Shelter Woods 2 掩护林2"],
+    ["Suffocation Pit 1 窒息矿井1", "Suffocation Pit 2 窒息矿井2"],
+    "Azarov's Resting Place 阿扎罗夫长眠处",
+    "Blood Lodge 血屋",
+    "Gas Heaven 汽油天堂（废弃加油站）",
+    "Wrecker's Yard 废弃车库后院",
+    "Wretched Shop 悲惨商店",
+    "Fractured Cowshed 断骨牛舍",
+    "Rancid Abattoir 腐败屠宰场",
+    "Rotten Fields 腐臭之地",
+    "The Thompson House 汤普森宅邸",
+    "Torment Creek 痛苦溪流",
+    "Disturbed Ward 精神病房",
+    "Father Cambell's Chapel 艾贝尔神父的教堂",
+    "The Pale Rose 苍白玫瑰",
+    "Grim Pantry 阴森棚屋",
+    "Treatement Theater 疗程教室",
+    "Mother's Dwelling 母亲的住所",
+    "The Temple of Purgatation 赎罪神庙",
+    ["Badham Preschool 1 巴德姆幼儿园1", "Badham Preschool 2 巴德姆幼儿园2", "Badham Preschool 3 巴德姆幼儿园3", "Badham Preschool 4 巴德姆幼儿园4", "Badham Preschool 5 巴德姆幼儿园5"],
+    "The Game 游戏",
+    ["Family Residence 1 家宅1", "Family Residence 2 家宅2"
+    "Sactum of Wraith 1 愤怒圣所1", "Sactum of Wraith 2 愤怒圣所2"],
+    ["Mount Ormond Resort 1 奥蒙德山度假村1", "Mount Ormond Resort 2 奥蒙德山度假村2", "Mount Ormond Resort 3 奥蒙德山度假村3"],
+    "Ormond River Lake 奥蒙德湖矿场",
+    "The Underground Complex 霍金斯地下设施",
+    "Dead Dawg Saloon 死狗酒馆",
+    "Midwich Elementary School 米德维奇小学",
+    "Racoon City Police Station West Wing 浣熊市警察局西翼", 
+    "Racoon City Police Station East Wing 浣熊市警察局东翼",
+    "Eyrie of Crows 乌鸦巢穴",
+    "Dead Sands 死亡沙漠",
+    "Garden of Joy 极乐园",
+    "Greenville Square 格林维尔广场",
+    ["The Shattered Square 残垣广场",
+    "Forgotten Ruins 遗忘废墟",],
+    "Toba Landing 多巴着陆点",
+    "Nostromo Wreckage 诺斯托罗莫号残骸",
+    ]
+
+
+
+
+    # Randomly add "天使" and "撒旦" with a probability of 0.25 each
+    if random.random() < 0.25:
+        escape_roles.append("天使")
+    if random.random() < 0.05:
+        escape_roles.append("愚者")
+    if random.random() < 0.01:
+        escape_roles.append("上帝")
+    if random.random() < 0.25:
+        traitor_roles.append("撒旦")
+    
+    # Ensure unique escape roles by sampling without replacement
+    assigned_escape_roles = dict(zip(players, random.sample(escape_roles, 4)))
+    
+    # Select traitor
+    traitor = random.choice(players)
+    traitor_role = random.choice(traitor_roles)
+    
+    # Output results in order
+    extra_killer_perk_groups = []  # for 魑魅加成
+
+    if traitor_role == "魑魅":
+        extra_killer_perk_groups = [
+            random.sample([kp for kp in killer_perks], 4),
+            random.sample([kp for kp in killer_perks], 4)
+        ]
+
+    for player in players:
+        print(f"{player}：")
+        role = assigned_escape_roles[player]
+        player_awaken = 0
+        if random.random() < 0.25:
+            player_awaken = 1
+        
+        if player_awaken == 1:
+            print("逃生者聆听到上帝的启示！")
+
+        print(f"你的逃生者职业是：{role}")
+        if player == traitor:
+            print(f"你的内鬼职业是：{traitor_role}")
+        else:
+            print("你不是内鬼")
+
+        # 分配主技能
+        perks = random.sample(survivor_perks, 4)
+        print("你的技能是：")
+        for perk in perks:
+            print(f" - {perk}")
+        
+        # 若是贤者，额外两组
+        if role == "贤者":
+            print("你的贤者额外技能是：")
+            extra1 = random.sample([p for p in survivor_perks if p not in perks], 4)
+            extra2 = random.sample([p for p in survivor_perks if p not in perks and p not in extra1], 4)
+            extra3 = random.sample([p for p in survivor_perks if p not in perks and p not in extra1 and extra2], 4)
+            print(" - 第一组：")
+            for p in extra1:
+                print(f"   - {p}")
+            print(" - 第二组：")
+            for p in extra2:
+                print(f"   - {p}")
+            if player_awaken == 1:
+                print(" - 第三组：")
+                for p in extra3:
+                    print(f"   - {p}")
+
+            
+        print()
+
+        if role == "商贩":
+            if player_awaken == 0:
+                extra_survivor = random.sample([p for p in survivor_perks if p not in perks], 4)
+                extra_killer = random.sample(killer_perks, 4)
+            else:
+                extra_survivor = random.sample([p for p in survivor_perks if p not in perks], 6)
+                extra_killer = random.sample(killer_perks, 6)
+            print("你的商贩额外逃生技能：")
+            for p in extra_survivor:
+                print(f" - {p}")
+            print("你的商贩额外屠夫技能：")
+            for kp in extra_killer:
+                print(f" - {kp}")
+
+    kperks = random.sample(killer_perks, 4)
+
+    if random.random() < 0.25:
+        killer_awaken = 1
+        print("内鬼被神秘力量祝福，获得觉醒能力！")
+
+    
+
+    # 魑魅：额外两组杀手技能显示（全体可见）
+    if traitor_role == "魑魅":
+        print("魑魅触发！额外两组杀手技能：")
+        for i, extra_group in enumerate(extra_killer_perk_groups, 1):
+            print(f" - 第{i}组：")
+            for kp in extra_group:
+                print(f"   - {kp}")
+    print()
+
+    if traitor_role == "假面":
+        print("假面触发！额外一组逃生者技能：")
+        extra_survivor = random.sample([p for p in survivor_perks if p not in perks], 4)
+        for p in extra_survivor:
+            print(f" - {p}")
+        if killer_awaken == 1:
+            print("觉醒假面额外杀手技能：")
+            extra_killer_mask = random.sample(killer_perks, 4)
+            for kp in extra_killer_mask:
+                print(f" - {kp}")
+            
+    print()
+
+
+
+
+    print("杀手的技能是：")
+    for kp in kperks:
+        print(f" - {kp}")
+        
+    print()
+    killer_selection = random.sample(killer_roles, 4)
+    print("可选择的杀手是：")
+    for killer in killer_selection:
+        print(f" - {killer}")
+    
+    if traitor_role == "憎恶":   
+        if killer_awaken == 0:
+            print("憎恶触发！额外一组未获得的杀手选择：")
+            extra_killer_selection = random.sample([k for k in killer_roles if k not in killer_selection], 4)
+            for ek in extra_killer_selection:
+                print(f" - {ek}")
+        if killer_awaken == 1:
+            print("觉醒憎恶触发！额外一组未获得，且可能包含受限制杀手的选择：")
+            killer_roles.extend(["Sally Smithson - The Nurse 护士",
+                                     "Rin Yamaoka -The Spirit 怨灵",
+                                     "Talbot Grimes -The Blight 枯萎者",
+                                     "Charlotte & Victor Deashayes -The Twins 连体婴",
+                                     "Portia Maye -The Houndmaster 训犬师",
+                                     "Ken Kaneki -The Ghoul 食尸鬼"])
+            # for killer in killer_roles:
+            #     print(f" - {killer}")
+            # print("---")
+            extra_killer_selection = random.sample([k for k in killer_roles if k not in killer_selection], 4)
+            for ek in extra_killer_selection:
+                print(f" - {ek}")
+
+    map_selection_groups = random.sample(map, 4)
+    map_selection = [
+        random.choice(group) if isinstance(group, list) else group
+        for group in map_selection_groups
+    ]
+    print()
+    print("可选择的地图是：")
+    
+    for m in map_selection:
+        print(f" - {m}")
+
+    addon_tier_list = ["红","紫","蓝","绿","白"]
+    print()
+    addon1 = random.choice(addon_tier_list)
+    addon2 = random.choice(addon_tier_list)
+    print( f"杀手的配件稀有度为 {addon1}配 和 {addon2}配")
+    
+if __name__ == "__main__":
+    print(f"============ New Game ================")
+    assign_roles()
